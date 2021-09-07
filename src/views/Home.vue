@@ -1,5 +1,6 @@
 <script setup>
 import ThemeCard from '../components/ThemeCard.vue'
+import Search from '../components/Search.vue'
 
 const sampleThemesCards = [
     {
@@ -42,6 +43,8 @@ const sampleThemesCards = [
             gap-28
         "
     >
+        <Search />
+
         <ThemeCard
             :theme="theme"
             v-for="(theme, index) in sampleThemesCards"
