@@ -31,6 +31,7 @@ const sampleThemesCards = [
 </script>
 
 <template>
+    <Search />
     <div
         class="
             m-52
@@ -43,8 +44,6 @@ const sampleThemesCards = [
             gap-28
         "
     >
-        <Search />
-
         <ThemeCard
             :theme="theme"
             v-for="(theme, index) in sampleThemesCards"
