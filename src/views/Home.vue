@@ -31,6 +31,9 @@ const sampleThemesCards = [
 </script>
 
 <template>
+    <h1 class="text-white uppercase font-medium p-8 mt-20 text-center text-4xl">
+        Every Houdini Themes in one place
+    </h1>
     <Search />
     <div
         class="
