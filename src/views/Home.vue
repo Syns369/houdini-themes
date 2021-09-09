@@ -1,6 +1,7 @@
 <script setup>
 import ThemeCard from '../components/ThemeCard.vue'
 import Search from '../components/Search.vue'
+import Title from '../components/Title.vue'
 
 const sampleThemesCards = [
     {
@@ -31,10 +32,23 @@ const sampleThemesCards = [
 </script>
 
 <template>
-    <h1 class="text-white uppercase font-medium p-8 mt-20 text-center text-4xl">
-        Every Houdini Themes in one place
-    </h1>
+    <Title titletext="Every Houdini Themes in one place."></Title>
+
+    <!-- <h1
+        class="
+            text-white
+            font-medium
+            p-8
+            mt-20
+            text-center text-5xl
+            tracking-wide
+        "
+    >
+        Every Houdini Themes in one place.
+    </h1> -->
+
     <Search />
+
     <div
         class="
             m-52
@@ -54,3 +68,11 @@ const sampleThemesCards = [
         />
     </div>
 </template>
+
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+}
+</style>
