@@ -1,7 +1,0 @@
-import { createApp } from '/node_modules/.vite/vue.js?v=2f3d9bcd'
-import App from '/src/App.vue?t=1631217958707'
-import router from '/src/router/index.js?t=1631217497168'
-import '/src/index.css'
-// import VueTyperPlugin from 'vue-typer'
-
-createApp(App).use(router).mount('#app')
