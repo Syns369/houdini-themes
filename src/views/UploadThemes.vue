@@ -1,13 +1,13 @@
 <template>
-    <div class="h-full p-8 space-x-10 flex items-center">
+    <div class="m-8 mb-40 h-full p-8 space-x-10 flex items-center">
         <div
             class="
+                bg-gray-800
                 h-full
                 w-1/2
                 text-white text-center
                 border-dashed border-2
                 rounded-3xl
-                bg-gray-800
                 space-y-4
                 flex flex-col
                 justify-center
@@ -47,14 +47,14 @@
             </button>
         </div>
 
-        <div class="h-full p-11 w-1/2 text-white rounded-3xl flex space-x-12">
+        <div class="h-full w-1/2 p-8 text-white flex space-x-12">
             <div
                 class="
+                    w-1/2
                     flex flex-col
                     text-xl
                     justify-center
                     items-start
-                    w-1/2
                     space-y-4
                 "
             >
@@ -75,7 +75,7 @@
                 <input type="text" class="form-input bg-gray-800 rounded-lg" />
             </div>
 
-            <div class="w-1/2 flex flex-col items-center">
+            <div class="w-1/2 mt-11 flex flex-col items-center">
                 <div
                     class="
                         w-full

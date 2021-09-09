@@ -1,14 +1,43 @@
 <script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 import Navigation from './components/Navigation.vue'
 import Footer from './components/Footer.vue'
 </script>
 
+<script>
+export default {
+    data() {
+        return {
+            navigation: null,
+        }
+    },
+    created() {
+        this.checkRoute()
+    },
+    methods: {
+        checkRoute() {
+            if (
+                this.$route.name === 'Login' ||
+                this.$route.name === 'Register' ||
+                this.$route.name === 'ForgotPassword'
+            ) {
+                this.navigation = true
+                return
+            }
+            this.navigation = false
+        },
+    },
+    watch: {
+        $route() {
+            this.checkRoute()
+        },
+    },
+}
+</script>
+
 <template>
     <div class="flex flex-col h-screen">
-        <Navigation class="flex-none" />
-        <router-view class="flex-grow"></router-view>
-        <Footer class="flex-none"></Footer>
+        <Navigation v-if="!navigation" />
+        <router-view></router-view>
+        <Footer v-if="!navigation" class="mt-auto"></Footer>
     </div>
 </template>
