@@ -18,6 +18,7 @@
                     transition
                     duration-200
                     ease-linear
+                    placeholder-white
                 "
             />
             <div class="absolute self-center self-start ml-5 opacity-1">
@@ -84,10 +85,3 @@
     </div>
     -->
 </template>
-
-<style scoped>
-::placeholder {
-    /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: rgba(255, 255, 255, 0.692);
-}
-</style>
