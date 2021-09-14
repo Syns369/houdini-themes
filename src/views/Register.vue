@@ -16,7 +16,7 @@
         >
             <img
                 class="h-16 w-16 rounded-full"
-                src="src\assets\houdini_logo.png"
+                src="/src/assets/houdini-logo.png"
                 alt=""
             />
             <h2 class="text-white mt-6 text-center text-3xl font-extrabold">
