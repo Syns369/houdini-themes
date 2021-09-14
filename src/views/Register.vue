@@ -177,6 +177,7 @@ import { ref } from 'vue'
 import { supabase } from '../supabase'
 
 const loading = ref(false)
+const userName = ref('')
 const email = ref('')
 const password = ref('')
 
@@ -191,17 +192,41 @@ const signUp = async () => {
             password: password.value,
         })
 
+        updateProfile(user)
+
+        // router.push({ name: 'Login' })
         if (user) {
             router.push({ name: 'Login' })
             console.log('Account created')
         }
 
-        // router.push({ name: 'Login' })
-
         if (error) throw error
         alert('Check your email for the login link!')
     } catch (error) {
         alert(error.error_description || error.message)
+    } finally {
+        loading.value = false
+    }
+}
+
+async function updateProfile(user) {
+    try {
+        loading.value = true
+        // store.user = supabase.auth.user()
+
+        const updates = {
+            id: user.id,
+            username: userName.value,
+        }
+
+        let { error } = await supabase.from('profiles').upsert(updates, {
+            returning: 'minimal', // Don't return the value after inserting
+        })
+        console.log('updated profile')
+
+        if (error) throw error
+    } catch (error) {
+        alert(error.message)
     } finally {
         loading.value = false
     }
