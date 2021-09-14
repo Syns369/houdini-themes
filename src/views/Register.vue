@@ -122,12 +122,8 @@
                     >
                         <!-- Heroicon name: solid/lock-closed -->
                         <svg
-                            class="
-                                h-5
-                                w-5
-                                text-white
-                                group-hover:text-indigo-400
-                            "
+                            v-if="!loading"
+                            class="h-5 w-5 text-white"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 20 20"
                             fill="currentColor"
@@ -139,8 +135,31 @@
                                 clip-rule="evenodd"
                             />
                         </svg>
+                        <svg
+                            v-if="loading"
+                            class="h-5 w-5 text-white"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 50 50"
+                            fill="currentColor"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z"
+                            >
+                                <animateTransform
+                                    attributeType="xml"
+                                    attributeName="transform"
+                                    type="rotate"
+                                    from="0 25 25"
+                                    to="360 25 25"
+                                    dur="0.6s"
+                                    repeatCount="indefinite"
+                                />
+                            </path>
+                        </svg>
                     </span>
-                    Sign up
+                    Sign Up
                 </button>
             </form>
             <router-link
@@ -157,6 +176,7 @@ import { useRouter } from 'vue-router'
 import { ref } from 'vue'
 import { supabase } from '../supabase'
 
+const loading = ref(false)
 const email = ref('')
 const password = ref('')
 
@@ -164,17 +184,21 @@ const router = useRouter()
 
 const createUser = async () => {
     try {
+        loading.value = true
+
         let { user, error } = await supabase.auth.signUp({
             email: email.value,
             password: password.value,
         })
+
+        router.push({ name: 'Login' })
 
         if (error) throw error
         alert('Check your email for the login link!')
     } catch (error) {
         alert(error.error_description || error.message)
     } finally {
-        router.push({ name: 'Login' })
+        loading.value = false
     }
 }
 </script>
