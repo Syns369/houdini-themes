@@ -99,7 +99,7 @@
                 </div> -->
 
                 <button
-                    @click.prevent="createUser"
+                    @click.prevent="signUp"
                     type="submit"
                     class="
                         relative
@@ -182,7 +182,7 @@ const password = ref('')
 
 const router = useRouter()
 
-const createUser = async () => {
+const signUp = async () => {
     try {
         loading.value = true
 
@@ -191,7 +191,12 @@ const createUser = async () => {
             password: password.value,
         })
 
-        router.push({ name: 'Login' })
+        if (user) {
+            router.push({ name: 'Login' })
+            console.log('Account created')
+        }
+
+        // router.push({ name: 'Login' })
 
         if (error) throw error
         alert('Check your email for the login link!')

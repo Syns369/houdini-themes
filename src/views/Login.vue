@@ -202,12 +202,15 @@ const signIn = async () => {
             password: password.value,
         })
 
-        router.push({ name: 'User' })
-        console.log('Logged In')
+        if (user) {
+            router.push({ name: 'User' })
+            console.log('Logged In')
+        }
 
         if (error) throw error
     } catch (error) {
         alert(error.error_description || error.message)
+        // router.push({ name: 'Home' })
     } finally {
         loading.value = false
     }
