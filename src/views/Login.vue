@@ -48,6 +48,7 @@
                         rounded-lg
                     "
                     placeholder="Email address"
+                    v-model="email"
                 />
 
                 <input
@@ -70,6 +71,7 @@
                         rounded-lg
                     "
                     placeholder="Password"
+                    v-model="password"
                 />
 
                 <div class="flex items-center justify-between">
@@ -107,6 +109,7 @@
                 </div>
 
                 <button
+                    @click.prevent="signIn"
                     type="submit"
                     class="
                         relative
@@ -159,3 +162,30 @@
         </div>
     </div>
 </template>
+
+<script setup>
+import { useRouter } from 'vue-router'
+import { ref } from 'vue'
+import { supabase } from '../supabase'
+
+const email = ref('')
+const password = ref('')
+
+const router = useRouter()
+
+const signIn = async () => {
+    try {
+        let { user, error } = await supabase.auth.signIn({
+            email: email.value,
+            password: password.value,
+        })
+
+        if (error) throw error
+        // alert('Check your email for the login link!')
+    } catch (error) {
+        alert(error.error_description || error.message)
+    } finally {
+        router.push({ name: 'User' })
+    }
+}
+</script>

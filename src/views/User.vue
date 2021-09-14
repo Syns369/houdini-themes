@@ -8,7 +8,7 @@
 import { ref } from 'vue'
 import { supabase } from '../supabase'
 
-// const user = supabase.auth.user()
+const user = supabase.auth.user()
 
-// console.log(user)
+console.log(user)
 </script>

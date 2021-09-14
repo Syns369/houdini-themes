@@ -174,7 +174,7 @@ const createUser = async () => {
     } catch (error) {
         alert(error.error_description || error.message)
     } finally {
-        router.push({ name: 'User' })
+        router.push({ name: 'Login' })
     }
 }
 </script>
