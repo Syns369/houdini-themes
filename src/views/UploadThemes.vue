@@ -59,10 +59,7 @@
                 "
             >
                 <h1>Name your Theme :</h1>
-                <input
-                    type="text"
-                    class="form-input bg-gray-800 rounded-lg w-96"
-                />
+                <input type="text" class="bg-gray-800 rounded-lg w-96" />
                 <h1>Add a description :</h1>
                 <textarea
                     name=""
@@ -72,7 +69,7 @@
                     class="bg-gray-800 rounded-lg resize-none w-96"
                 ></textarea>
                 <h1>Tags :</h1>
-                <input type="text" class="form-input bg-gray-800 rounded-lg" />
+                <input type="text" class="bg-gray-800 rounded-lg" />
             </div>
 
             <div class="w-1/2 mt-11 flex flex-col items-center">

@@ -1,3 +1,23 @@
+<script setup></script>
+
+<script>
+export default {
+    data() {
+        return {
+            email: null,
+            modalActive: true,
+            modalMessage: '',
+        }
+    },
+    methods: {
+        closeModal() {
+            this.modalActive = !this.modalActive
+            this.email = ''
+        },
+    },
+}
+</script>
+
 <template>
     <div class="flex items-center justify-center min-h-screen sm:px-6 lg:px-8">
         <div
@@ -64,6 +84,7 @@
                         hover:bg-blue-900
                         focus:outline-none
                     "
+                    @click="openModals()"
                 >
                     <span
                         class="absolute left-0 inset-y-0 flex items-center pl-3"

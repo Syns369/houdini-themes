@@ -41,7 +41,10 @@
         </div>
 
         <div class="p-2 px-3 font-bold rounded-md">
-            <router-link class="flex items-center text-white" to="#">
+            <router-link
+                :to="{ name: 'Login' }"
+                class="flex items-center text-white"
+            >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-6 w-6 mr-2"

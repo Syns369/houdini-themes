@@ -4,6 +4,7 @@ import UploadThemes from '/src/views/UploadThemes.vue'
 import Login from '/src/views/Login.vue'
 import Register from '/src/views/Register.vue'
 import ForgotPassword from '/src/views/ForgotPassword.vue'
+import User from '/src/views/User.vue'
 
 const routes = [
     {
@@ -44,6 +45,14 @@ const routes = [
         component: ForgotPassword,
         meta: {
             title: 'Forgot Password',
+        },
+    },
+    {
+        path: '/user',
+        name: 'User',
+        component: User,
+        meta: {
+            title: 'User',
         },
     },
 ]

@@ -46,6 +46,7 @@
                         rounded-lg
                     "
                     placeholder="User Name"
+                    v-model="userName"
                 />
                 <input
                     id="email-address"
@@ -67,6 +68,7 @@
                         rounded-lg
                     "
                     placeholder="Email address"
+                    v-model="email"
                 />
 
                 <input
@@ -89,9 +91,15 @@
                         rounded-lg
                     "
                     placeholder="Password"
+                    v-model="password"
                 />
 
+                <!-- <div class="text-red-500" v-show="error">
+                    {{ this.error}}
+                </div> -->
+
                 <button
+                    @click.prevent="createUser"
                     type="submit"
                     class="
                         relative
@@ -132,7 +140,7 @@
                             />
                         </svg>
                     </span>
-                    Register
+                    Sign up
                 </button>
             </form>
             <router-link
@@ -143,3 +151,30 @@
         </div>
     </div>
 </template>
+
+<script setup>
+import { useRouter } from 'vue-router'
+import { ref } from 'vue'
+import { supabase } from '../supabase'
+
+const email = ref('')
+const password = ref('')
+
+const router = useRouter()
+
+const createUser = async () => {
+    try {
+        let { user, error } = await supabase.auth.signUp({
+            email: email.value,
+            password: password.value,
+        })
+
+        if (error) throw error
+        alert('Check your email for the login link!')
+    } catch (error) {
+        alert(error.error_description || error.message)
+    } finally {
+        router.push({ name: 'User' })
+    }
+}
+</script>
