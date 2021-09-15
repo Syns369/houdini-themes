@@ -7,7 +7,7 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - id: Build-Vue
-              uses: Syns369/VuePagesAction@1.0.3
+              uses: Syns369/VuePagesAction@1.0.4
               with:
                   username: 'Syns369'
                   reponame: 'houdini-themes'
