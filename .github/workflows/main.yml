@@ -1,14 +1,15 @@
 name: Build Vue
 on: [push]
 jobs:
-  build_vue:
-    runs-on: ubuntu-latest
-    name: Build Vue
-    steps:
-    - uses: actions/checkout@v2
-    - id: Build-Vue
-      uses: Syns369/VuePagesAction@1.0.1
-      with:
-        username: 'Syns369'
-        reponame: 'houdini-themes'
-        token: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
+    build_vue:
+        runs-on: ubuntu-latest
+        name: Build Vue
+        steps:
+            - uses: actions/checkout@v2
+            - id: Build-Vue
+              uses: Syns369/VuePagesAction@1.0.2
+              with:
+                  username: 'Syns369'
+                  reponame: 'houdini-themes'
+                  token: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
+                  supabase_token_url: ${{ secrets.VITE_SUPABASE_URL }}
