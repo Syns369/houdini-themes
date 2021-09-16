@@ -196,7 +196,7 @@ const signUp = async () => {
 
         // router.push({ name: 'Login' })
         if (user) {
-            router.push({ name: 'Login' })
+            router.push({ name: 'User' })
             console.log('Account created')
         }
 
@@ -211,7 +211,7 @@ const signUp = async () => {
 
 async function updateProfile(user) {
     try {
-        loading.value = true
+        // loading.value = true
         // store.user = supabase.auth.user()
 
         const updates = {
@@ -228,7 +228,7 @@ async function updateProfile(user) {
     } catch (error) {
         alert(error.message)
     } finally {
-        loading.value = false
+        // loading.value = false
     }
 }
 </script>

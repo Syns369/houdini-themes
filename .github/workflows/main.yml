@@ -12,4 +12,4 @@ jobs:
                   username: 'Syns369'
                   reponame: 'houdini-themes'
                   token: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
-                  supabase_token_url: ${{ secrets.VITE_SUPABASE_URL }}
+                  #   supabase_token_url: ${{ secrets.VITE_SUPABASE_URL }}
